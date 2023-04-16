@@ -16,6 +16,9 @@ class BottomBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         textDirection: TextDirection.rtl,
         children: [
+          // Container(
+          //   child: const Text('נעשו'),
+          // )
           ElevatedButton(
               onPressed: () {
                 Navigator.of(context).pushReplacementNamed(TodoScreen.routeName);

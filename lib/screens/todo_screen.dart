@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_app/providers/todo_provider.dart';
 import 'package:todo_app/widgets/add_widget.dart';
-import 'package:todo_app/widgets/bottom_bar.dart';
+import 'package:todo_app/widgets/caustom_scaffold.dart';
 
 class TodoScreen extends StatelessWidget {
   const TodoScreen({super.key});
 
   static const String routeName = "/";
-  
+
   @override
   Widget build(BuildContext context) {
     final TodoProvider todoProvider = Provider.of<TodoProvider>(context);
 
-    return Scaffold(
-      body: SafeArea(
+    return CaustomScaffold(
+        index: 0,
         child: Column(
           children: [
             const AddWidget(),
@@ -22,7 +22,7 @@ class TodoScreen extends StatelessWidget {
               child: SizedBox(
                 height: MediaQuery.of(context).size.height -
                     (MediaQuery.of(context).size.height * 0.1) -
-                    90,
+                    100,
                 child: ListView.builder(
                     itemCount: todoProvider.tasks.length,
                     itemBuilder: (context, index) {
@@ -46,10 +46,9 @@ class TodoScreen extends StatelessWidget {
                     }),
               ),
             ),
-            const BottomBar()
+            // const BottomBar()
           ],
         ),
-      ),
-    );
+      );
   }
 }
